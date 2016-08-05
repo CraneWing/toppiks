@@ -1,0 +1,39 @@
+{
+  "name": "toppiks",
+  "description": "Free Code Camp challenge to build a Pinterest clone with the MEAN or full stack",
+  "main": "server.js",
+  "authors": [
+    "V Mielke"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/app/lib",
+    "test",
+    "tests",
+    "src/assets/lib"
+  ],
+  "dependencies": {
+    "angular-ui-router-title": "^0.0.4",
+    "angular-ui-router": "^0.3.1",
+    "angular-animate": "^1.5.8",
+    "satellizer": "^0.15.4",
+    "angular-messages": "^1.5.8",
+    "masonry": "^4.1.0",
+    "bootstrap": "^3.3.7",
+    "moment": "^2.14.1",
+    "angular-moment": "^0.10.3",
+    "angular-masonry": "^0.16.0"
+  },
+  "resolutions": {
+    "jquery": ">=1.4.2 <4",
+    "masonry": "~4.0.0",
+    "outlayer": "~2.0.0",
+    "angular": ">=1.2.0 <1.5.0",
+    "moment": ">=2.8.0 <2.11.0"
+  }
+}

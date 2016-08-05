@@ -1,0 +1,32 @@
+<div class="row">
+	<div class="col-md-8 col-md-offset-2">
+		<h2>Add Pick</h2>
+		<form name="addPickForm">
+			<div class="form-group">
+				<label for="title">Title*</label> 
+				<input type="text" name="title" ng-model="pick.title" class="form-control" required>
+				<div class="help-block" ng-messages="addPickForm.title.$error" ng-if="addPickForm.title.$dirty">
+			    <div class="text-red" ng-message="required">Title is required.</div>
+			  </div>
+			</div>
+
+			<div class="form-group">
+				<label for="description">Description*</label> 
+				<input type="text" name="description" ng-model="pick.description" class="form-control" required>
+				<div class="help-block" ng-messages="addPickForm.description.$error" ng-if="addPickForm.description.$dirty">
+			    <div class="text-red" ng-message="required">Description required.</div>
+			  </div>
+			</div>
+
+			<div class="form-group">
+				<label for="image_url">Image URL*</label> 
+				<input type="text" name="image_url" ng-model="pick.image_url" class="form-control" required>
+				<div class="help-block" ng-messages="addPickForm.image_url.$error" ng-if="addPickForm.image_url.$dirty">
+			    <div class="text-red" ng-message="required">Image URL required.</div>
+			  </div>
+			</div>
+
+			<button ng-click="addPick()" class="btn">Submit</button>
+		</form>
+	</div>
+</div>

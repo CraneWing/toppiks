@@ -1,0 +1,7 @@
+node_modules/
+.eslintrc
+.env
+mongod
+server/config
+src/assets/lib
+data

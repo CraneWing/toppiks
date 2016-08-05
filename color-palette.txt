@@ -1,0 +1,9 @@
+colors I liked in a Bootply template
+
+light green: #30d284
+medium blue: #3faae2
+red: #ee634c
+gold: #f5cd0c
+purple: #ac72c3
+orange: #ed912c
+dark blue: #23527c

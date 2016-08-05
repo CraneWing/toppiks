@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html ng-app="toppiksApp">
+	<head>
+		<meta charset="utf-8">
+		<!-- vendor CSS -->
+		<link rel="stylesheet" href="/assets/lib/bootstrap/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/assets/css/typicons.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:400,300,300italic,400italic">
+		<!-- custom styles -->
+		<link rel="stylesheet" href="/assets/css/custom.css">
+		<title ng-bind="'TOPPIKS | ' + $title">TOPPIKS</title>
+	</head>
+	<body>
+	  <nav class="navbar navbar-default" role="navigation" ng-controller="NavbarCtrl">
+	    <div class="container">
+	      <div class="navbar-header">
+	        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	          <span class="sr-only">Toggle navigation</span>
+	          <span class="icon-bar"></span>
+	          <span class="icon-bar"></span>
+	          <span class="icon-bar"></span>
+	        </button>
+	        <a class="navbar-brand" href="/#">
+	        	<img src="/assets/img/toppiks-logo.png" alt="TOPPIKS logo">
+	        </a>
+	      </div>
+	      
+	      <div class="collapse navbar-collapse">
+	        <ul class="nav navbar-nav navbar-right">
+	          <li ng-if="isAuthenticated()">
+	          	<a href="#/picks/add">Add</a>
+	          </li>
+	          <li ng-if="isAuthenticated()">
+	          	<a href="#/users/{{currentUser.id}}/picks">Your Piks</a>
+	          </li>
+	          <li ng-if="!isAuthenticated()">
+	            <a href="#/signup" ng-class="getClass('/signup')">Sign Up</a>
+	          </li>
+	          <li ng-if="!isAuthenticated()">
+	             <a href="#/login" ng-class="getClass('/login')">Login</a>
+	          </li>
+	          <li ng-if="isAuthenticated()" class="logout" ng-if="isAuthenticated()">
+	             <a ng-click="logout()" class="ng-click-link">Logout</a>
+	          </li>
+	          <li class="current-user" ng-if="isAuthenticated()">
+	            <img ng-src="{{currentUser.profile_img}}" class="profile-img">
+	             <span>{{currentUser.display_name}}</span>
+	          </li>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+		<div class="container">
+			<div ui-view></div>
+		</div>
+ 
+		<footer>
+			<p class="text-center">
+				Free Code Camp Full Stack Challenge by CraneWing | <a href="#"><span class="typcn typcn-social-github"></span>Repo</a>
+			</p>
+		</footer>
+    <!-- vendor JS files -->
+    <script src="/assets/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/assets/lib/jquery-bridget/jquery-bridget.js"></script>
+	  <script src="/assets/lib/ev-emitter/ev-emitter.js"></script>
+	  <script src="/assets/lib/desandro-matches-selector/matches-selector.js"></script>
+	  <script src="/assets/lib/fizzy-ui-utils/utils.js"></script>
+	  <script src="/assets/lib/get-size/get-size.js"></script>
+	  <script src="/assets/lib/outlayer/item.js"></script>
+	  <script src="/assets/lib/outlayer/outlayer.js"></script>
+	  <script src="/assets/lib/masonry/masonry.js"></script>
+	  <script src="/assets/lib/imagesloaded/imagesloaded.js"></script>
+	  <script src="/assets/lib/moment/min/moment.min.js"></script>
+    <!-- angular and dependencies -->
+		<script src="/assets/lib/angular/angular.js"></script>
+		<script src="/assets/lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+		<script src="/assets/lib/angular-ui-router-title/angular-ui-router-title.js"></script>
+		<script src="/assets/lib/angular-moment/angular-moment.min.js"></script>
+		<script src="/assets/lib/angular-masonry/angular-masonry.js"></script>
+		<script src="/assets/lib/satellizer/dist/satellizer.min.js"></script>
+		<!-- app files -->
+		<script src="/app/app.js"></script>
+		<script src="/app/config/routes.config.js"></script>
+		<script src="/app/services/pick.service.js"></script>
+		<script src="/app/auth/login/login.controller.js"></script>
+		<script src="/app/auth/signup/signup.controller.js"></script>
+		<script src="/app/navbar/navbar.controller.js"></script>
+		<script src="/app/home/home.controller.js"></script>
+		<script src="/app/pick_add/pick.add.controller.js"></script>
+	</body>
+</html>
