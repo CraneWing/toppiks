@@ -56,6 +56,25 @@ body .hidden {
 .panel-heading {
   margin: 0 !important;
   padding: 0;
+  position: relative;
+}
+
+.panel-heading .delete {
+  z-index: 10;
+  font-size: 24px;
+  color: #333;
+  font-weight: bold;
+  padding-right: 6px;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.panel-heading .delete:hover {
+  text-decoration: none;
+  opacity: 0.8;
+  color: #ee634c;
 }
 
 .masonry-brick {
@@ -86,13 +105,14 @@ body .hidden {
 }
 
 .masonry-brick .panel-default .posted-by-wrap .posted-by {
-  margin-right: 30px;
-  margin-top: -4px;
-  float: right;
+  float: left;
+  padding-left: 7px;
+  margin-top: -2px;
 }
 
-.masonry-brick .panel-default .posted-by-wrap .tiny-profile img {
+.masonry-brick .panel-default .posted-by-wrap .tiny-profile-img {
   float: left;
+  position: relative;
   border-radius: 50%;
   height: 25px;
   width: 25px;
@@ -117,18 +137,23 @@ body .hidden {
   font-size: 23px;
 }
 
-/*** homepage ***/
 .no-piks {
   font-size: 18px;
-}
-
-.btn {
-  background-color: #ee634c;
 }
 
 /*** login ***/
 #twitter-signup span {
   font-size: 28px;
+}
+
+/*** all forms ***/
+form input[type="text"] {
+  border-radius: 0;
+  border-color: #3faae2;
+}
+
+form .btn {
+  background-color: #ee634c;
 }
 
 /*** footer ***/

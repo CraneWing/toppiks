@@ -69,4 +69,16 @@ router.post('/:id/update_like', function(req, res) {
 	});
 });
 
+router.post('/:id/delete', function(req, res) {
+	var pickId = req.params.id;
+	
+	Pick.findByIdAndRemove({ _id: pickId }, function(err) {
+		if (err) return res.send(err);
+		
+		res.json({
+			message: 'Pick ID #' + pickId + ' has been deleted!'
+		});
+	});
+});
+
 module.exports = router;

@@ -5,25 +5,22 @@
 		<div class="masonry-brick" ng-repeat="pick in picks">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<img ng-src="{{pick.image_url}}" alt="{{pick.title}}">
+					<img ng-src="{{pick.image_url}}" alt="{{pick.title}}" on-error="/assets/img/camera-placeholder.jpg">
 				</div>
 				<div class="panel-body">
 					<h4>{{pick.title}}</h4>
 					
 					<p>{{pick.description}}</p>
 					<div class="posted-by-wrap">
-						<div class="tiny-profile">
-							<img ng-src="{{pick.profile_image}}" class="tiny-profile-img">
-						</div>
+						<img ng-src="{{pick.profile_image}}" class="tiny-profile-img">
+						
 						<div class="posted-by">
 							<p>
-								<strong>
-									<a href="#/picks/user/{{pick.user_id}}">
-										{{pick.display_name}}
-									</a>
-								</strong>
+								<a href="#/picks/user/{{pick.user_id}}">
+									<strong>{{pick.display_name}}</strong>
+								</a>
 								<br> {{pick.created_at | amDateFormat: 'D MMM YYYY, h:mm a'}}
-							</p>
+						  </p>
 						</div>
 					</div>
 					

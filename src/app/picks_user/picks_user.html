@@ -1,31 +1,31 @@
 <div class="row">
   <h3>All Piks by {{displayName}}</h3>
-	<p ng-show="showMessage">You don't have any Piks yet. Add one now!</p>
+	<p ng-show="showMessage && isAuthenticated()">You don't have any Piks yet. <a href="#/picks/add">Add</a> one now!</p>
 	  
 	 <div masonry ng-show="picks.length > 0">
      <div class="masonry-brick" ng-repeat="pick in picks track by $index">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<img ng-src="{{pick.image_url}}" alt="{{pick.title}}">
+				  <a class="delete pull-right" ng-click="deletePick(pick._id)" ng-show="pick.user_id == currentUser.id">
+				    &times;
+				  </a>
+					<img ng-src="{{pick.image_url}}" alt="{{pick.title}}" on-error="/assets/img/camera-placeholder.jpg">
 				</div>
   			<div class="panel-body">
   				<h4>{{pick.title}}</h4>
   					
   				<p>{{pick.description}}</p>
   				<div class="posted-by-wrap">
-  						<div class="tiny-profile">
-  							<img ng-src="{{pick.profile_image}}" class="tiny-profile-img">
-  						</div>
+  						<img ng-src="{{pick.profile_image}}" class="tiny-profile-img">
+
   						<div class="posted-by">
-  							<p>
-  								<strong>
-  									<a href="/users/{{pick.user_id}}/picks">
-  										{{pick.display_name}}
-  									</a>
-  								</strong>
-  								<br> {{pick.created_at | amDateFormat: 'D MMM YYYY, h:mm a'}}
-  							</p>
-  						</div>
+							<p>
+								<a href="/users/{{pick.user_id}}/picks">
+									<strong>{{pick.display_name}}</strong>
+								</a>
+								<br> {{pick.created_at | amDateFormat: 'D MMM YYYY, h:mm a'}}
+							</p>
+  					</div>
   				</div> <!-- posted-by-wrap -->
   				<div class="clearfix"></div>
   				<div class="like">

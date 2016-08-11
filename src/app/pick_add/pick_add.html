@@ -4,7 +4,7 @@
 		<form name="addPickForm">
 			<div class="form-group">
 				<label for="title">Title*</label> 
-				<input type="text" name="title" ng-model="pick.title" class="form-control" required>
+				<input type="text" name="title" ng-model="pick.title" class="form-control input-md" required>
 				<div class="help-block" ng-messages="addPickForm.title.$error" ng-if="addPickForm.title.$dirty">
 			    <div class="text-red" ng-message="required">Title is required.</div>
 			  </div>
@@ -12,15 +12,16 @@
 
 			<div class="form-group">
 				<label for="description">Description*</label> 
-				<input type="text" name="description" ng-model="pick.description" class="form-control" required>
+				<input type="text" name="description" ng-model="pick.description" class="form-control input-md" required ng-maxlength="90" char-limit-to="90">
 				<div class="help-block" ng-messages="addPickForm.description.$error" ng-if="addPickForm.description.$dirty">
 			    <div class="text-red" ng-message="required">Description required.</div>
+			    <div class="text-red" ng-message="maxlength">Max 90 characters. {{90 - pick.description.length}} characters left.</div>
 			  </div>
 			</div>
 
 			<div class="form-group">
 				<label for="image_url">Image URL*</label> 
-				<input type="text" name="image_url" ng-model="pick.image_url" class="form-control" required>
+				<input type="text" name="image_url" ng-model="pick.image_url" class="form-control input-md" required>
 				<div class="help-block" ng-messages="addPickForm.image_url.$error" ng-if="addPickForm.image_url.$dirty">
 			    <div class="text-red" ng-message="required">Image URL required.</div>
 			  </div>
