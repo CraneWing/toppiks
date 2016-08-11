@@ -11,13 +11,34 @@
 					<h4>{{pick.title}}</h4>
 					
 					<p>{{pick.description}}</p>
-					<p class="posted-by">
-						<strong>{{pick.display_name}}</strong> at {{pick.created_at | amDateFormat: 'D MMM YYYY, h:mm a'}}
-					</p>
-
-					<p><span class="typcn typcn-heart-outline"></span> Like <span class="likes"><i class="typcn typcn-thumbs-up"></i> {{pick.likes}} likes</span></p>
-				</div>
-			</div>
-		</div>
+					<div class="posted-by-wrap">
+						<div class="tiny-profile">
+							<img ng-src="{{pick.profile_image}}" class="tiny-profile-img">
+						</div>
+						<div class="posted-by">
+							<p>
+								<strong>
+									<a href="#/picks/user/{{pick.user_id}}">
+										{{pick.display_name}}
+									</a>
+								</strong>
+								<br> {{pick.created_at | amDateFormat: 'D MMM YYYY, h:mm a'}}
+							</p>
+						</div>
+					</div>
+					
+					<div class="clearfix"></div>
+					
+					<div class="like">
+						<button class="like-btn" ng-click="likeThis(pick)" ng-disabled="!isAuthenticated()" id="{{pick._id}}">
+							<span class="typcn {{pick.isLiked == false ? 'typcn-heart-outline' : 'typcn-heart-full-outline'}}"></span>
+						</button> Like
+					</div>
+					<div class="total-likes">
+							<span class="typcn typcn-thumbs-up"></span> {{picks[$index].likes}} likes
+					</div>
+				</div> <!-- panel-body -->
+			</div> <!-- panel-default -->
+		</div> <!-- masonry-brick -->
 	</div>
 </div>

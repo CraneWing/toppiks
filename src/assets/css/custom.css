@@ -12,6 +12,15 @@ body .ng-click-link {
   cursor: pointer;
 }
 
+body .clearfix {
+  clear: both;
+}
+
+body .hidden {
+  display: none;
+}
+
+/*** navbar ***/
 .navbar {
   min-height: 65px;
   background-color: #3faae2;
@@ -43,13 +52,14 @@ body .ng-click-link {
   padding-left: 5px;
 }
 
+/*** home and user detail pages ***/
 .panel-heading {
   margin: 0 !important;
   padding: 0;
 }
 
 .masonry-brick {
-  width: 225px;
+  width: 230px;
 }
 
 .masonry-brick .loaded {
@@ -60,28 +70,51 @@ body .ng-click-link {
   width: 90% !important;
 }
 
-.masonry-brick .panel-default .posted-by {
-  font-size: 11px;
-}
-
 .masonry-brick .panel-default .typcn-heart-outline,
 .masonry-brick .panel-default .typcn-heart-full-outline {
   cursor: pointer;
   color: #ee634c;
-  font-size: 18px;
-}
-
-.masonry-brick .panel-default .likes {
-  float: right;
-}
-
-.masonry-brick .panel-default .likes .typcn-thumbs-up {
-  color: #23527c;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .masonry-brick .panel-default img {
   width: 100%;
+}
+
+.masonry-brick .panel-default .posted-by-wrap {
+  font-size: 11px;
+}
+
+.masonry-brick .panel-default .posted-by-wrap .posted-by {
+  margin-right: 30px;
+  margin-top: -4px;
+  float: right;
+}
+
+.masonry-brick .panel-default .posted-by-wrap .tiny-profile img {
+  float: left;
+  border-radius: 50%;
+  height: 25px;
+  width: 25px;
+}
+
+.masonry-brick .panel-default .like {
+  float: left;
+  margin-top: 3px;
+}
+
+.masonry-brick .panel-default .like .like-btn {
+  background: transparent;
+  border: 0;
+}
+
+.masonry-brick .panel-default .total-likes {
+  float: right;
+}
+
+.masonry-brick .panel-default .total-likes .typcn-thumbs-up {
+  color: #23527c;
+  font-size: 23px;
 }
 
 /*** homepage ***/

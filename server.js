@@ -30,10 +30,6 @@ app.use(express.static(__dirname + '/src'));
 app.use('/api/picks', picks);
 app.use('/api/users', users);
 
-app.get('*', function(req, res) {
-	res.redirect('/#' + req.originalUrl);
-});
-
 app.use(function(error, req, res, next) {
 	console.error(error.stack);
 	res.send(500, { message: error.message });

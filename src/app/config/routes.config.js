@@ -29,7 +29,7 @@ angular.module('toppiksApp')
 				.state('signup', {
 					url: '/signup',
 					templateUrl: 'app/auth/signup/signup.html',
-					//controller: 'SignupCtrl',
+					controller: 'SignupCtrl',
 					resolve: {
 						$title: function() {
 							return 'Sign Up';
@@ -43,6 +43,16 @@ angular.module('toppiksApp')
 					resolve: {
 						$title: function() {
 							return 'Login';
+						}
+					}
+				 })
+				 .state('user/:user_id', {
+					url: '/picks/user/:user_id',
+					templateUrl: 'app/picks_user/picks_user.html',
+					controller: 'PicksUserCtrl',
+					resolve: {
+						$title: function() {
+							return 'User Piks';
 						}
 					}
 				 });

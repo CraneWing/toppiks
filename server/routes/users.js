@@ -25,7 +25,9 @@ router.post('/signup', function(req, res) {
       display_name: req.body.display_name
     });
 
-    newUser.save(function() {
+    newUser.save(function(err) {
+      if (err) return res.send(err);
+      
       var token = authMiddleware.createToken(newUser);
 
       res.send({
@@ -56,6 +58,7 @@ router.post('/login', function(req, res, next) {
       }
 
       user = user.toObject();
+      //console.log(user);
       
       delete user.password;
 
@@ -149,7 +152,7 @@ router.post('/twitter', function(req, res) {
 
               user.twitter_id = profile.id;
               user.display_name = user.display_name || profile.name;
-              user.profile_img = profile.profile_image_url.replace('_normal', '').replace('http:', 'https:');
+              user.profile_img = profile.profile_image_url.replace('_normal', '');
               
               user.save(function(err) {
                 res.send({
@@ -181,7 +184,7 @@ router.post('/twitter', function(req, res) {
             var user = new User();
             user.twitter_id = profile.id;
             user.display_name = profile.name;
-            user.profile_img = profile.profile_image_url.replace('_normal', '').replace('http:', 'https:');
+            user.profile_img = profile.profile_image_url.replace('_normal', '');
             
             user.save(function() {
               res.send({

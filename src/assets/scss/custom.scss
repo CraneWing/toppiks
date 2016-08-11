@@ -15,7 +15,17 @@ body {
 	.ng-click-link {
 		cursor: pointer;
 	}
+	
+	.clearfix {
+		clear: both;
+	}
+	
+	.hidden {
+		display: none;
+	}
 }
+
+/*** navbar ***/
 
 .navbar {
   min-height: 65px;
@@ -48,13 +58,14 @@ body {
 	}
 }
 
+/*** home and user detail pages ***/
 .panel-heading {
 	margin: 0 !important;
 	padding: 0;
 }
 
 .masonry-brick {
-	width: 225px;
+	width: 230px;
 
 
 	.loaded {
@@ -64,28 +75,52 @@ body {
 	.panel-default {
 		width: 90% !important;
 
-		.posted-by {
-			font-size: 11px;
-		}
-
 		.typcn-heart-outline, 
 		.typcn-heart-full-outline {
 			cursor: pointer;
 			color: $red;
-			font-size: 18px;
-		}
-
-		.likes {
-			float: right;
-
-			.typcn-thumbs-up {
-				color: $dark-blue;
-				font-size: 18px;
-			}
+			font-size: 20px;
 		}
 
 		img {
 			width: 100%;
+		}
+		
+		.posted-by-wrap {
+			font-size: 11px;
+			
+			.posted-by {
+				margin-right: 30px;
+				margin-top: -4px;
+				float: right;
+			}
+			
+			.tiny-profile img {
+				float: left;
+				border-radius: 50%;
+				height: 25px;
+				width: 25px;
+			}
+		}
+
+		
+		.like {
+			float: left;
+			margin-top: 3px;
+			
+			.like-btn {
+				background: transparent;
+				border: 0;
+			}
+		}
+		
+		.total-likes {
+			float: right;
+		
+			.typcn-thumbs-up {
+				color: $dark-blue;
+				font-size: 23px;
+			}
 		}
 	}
 }

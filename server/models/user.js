@@ -1,14 +1,18 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var bcrypt = require('bcryptjs');
+var shortid = require('shortid');
 var SALT_WORK_FACTOR = 10;
 
 var userSchema = new Schema({
-	twitter_id: {
+	_id: {
 		type: String,
-		index: true
+		default: shortid.generate
 	},
-	username: {
+	twitter_id: {
+		type: String
+	},
+	email: {
 		type: String,
 		unique: true
 	},
@@ -19,7 +23,10 @@ var userSchema = new Schema({
 	display_name: {
 		type: String
 	},
-	profile_img: String,
+	profile_img: {
+		type: String,
+		default: '/assets/img/profile-default.jpg'
+	},
 	user_created_at: {
 		type: Date,
 		default: Date.now

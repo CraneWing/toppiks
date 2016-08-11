@@ -1,37 +1,41 @@
 angular.module('toppiksApp')
-	.controller('LoginCtrl', ['$scope', '$auth', '$window', '$rootScope',
-	 function($scope, $auth, $window, $rootScope) {
+	.controller('LoginCtrl', [
+	'$scope',
+	'$auth',
+	'$window',
+	'$rootScope',
+	'$location',
+	function($scope, $auth, $window, $rootScope, $location) {
 		
-	$scope.emailLogin = function() {
- 		$auth.login({
- 			email: $scope.email, 
- 			password: $scope.password 
- 		})
- 		.then(function(response) {
- 			$window.localStorage.currentUser = JSON.stringify({
- 			  email: response.data.user.email,
- 			  display_name: response.data.user.display_name,
- 				profile_img: response.data.user.profile_img
- 			});
- 			$rootScope.currentUser = JSON.parse($window.localStorage.currentUser);
- 		})
- 		.catch(function(response) {
- 			$scope.errorMessage = {};
- 			angular.forEach(response.data.message, function(message, field) {
- 				$scope.loginForm[field].$setValidity('server', false);
- 				$scope.errorMessage[field] = response.data.message[field];
- 			});
- 		});
- 		
- 		$scope.email = '';
- 		$scope.password = '';
-};
+		$scope.emailLogin = function() {
+	 		$auth.login({
+	 			email: $scope.email, 
+	 			password: $scope.password 
+	 		})
+	 		.then(function(response) {
+	 			$window.localStorage.currentUser = JSON.stringify({
+	 			  display_name: response.data.user.display_name,
+	 				profile_img: response.data.user.profile_img,
+	 				id: response.data.user.id
+	 			});
+	 			$rootScope.currentUser = JSON.parse($window.localStorage.currentUser);
+	 		})
+	 		.catch(function(response) {
+	 			console.log(response);
+	 		});
+	 		
+	 		$scope.email = '';
+	 		$scope.password = '';
+	 		
+	 		$location.url('/');
+	};
 
 	$scope.twitterLogin = function() {
  		$auth.authenticate('twitter')
  			.then(function(response) {
  				$window.localStorage.currentUser = JSON.stringify(response.data.user);
  				$rootScope.currentUser = JSON.parse($window.localStorage.currentUser);
+ 				$location.url('/');
  			})
  			.catch(function(response) {
  				console.log(response.data);

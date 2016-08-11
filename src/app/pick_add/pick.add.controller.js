@@ -1,18 +1,18 @@
 angular.module('toppiksApp')
-	.controller('AddPickCtrl', ['$scope', 'pickFactory', '$location', '$rootScope',
+	.controller('AddPickCtrl', [
+		'$scope',
+		'pickFactory', 
+		'$location',
+		'$rootScope',
 		function($scope, pickFactory, $location, $rootScope) {
+			var currentUser = $rootScope.currentUser;
+			
 			$scope.addPick = function() {
-		  var currentUser = $rootScope.currentUser;
-
 				pickFactory.addPick({
 					pick: $scope.pick,
-					user: {
-						display_name: currentUser.display_name,
-						user_id: currentUser.user_id
-					}
+					user: currentUser
 				})
 				.success(function(result) {
-					// console.log(result);
 					$location.url('/');
 				});
 			};

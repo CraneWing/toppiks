@@ -1,5 +1,6 @@
 angular.module('toppiksApp')
-	.controller('SignupCtrl', ['$scope', '$auth', function($scope, $auth) {
+	.controller('SignupCtrl', ['$scope', '$auth', '$location', 
+	function($scope, $auth, $location) {
 		
 		$scope.signup = function() {
 	 		var user = {
@@ -13,15 +14,14 @@ angular.module('toppiksApp')
 	 				console.log(response.data);
 	 			})
 	 			.catch(function(response) {
-  	 			angular.forEach(response.data.message, function(message, field) {
-   					$scope.loginForm[field].$setValidity('server', false);
-   					$scope.errorMessage[field] = response.data.message[field];
-   				});
+  	 			console.log(response);
 	 		 });
 	 			
-	 		$scope.email = '';
-		  $scope.password = '';
-		  $scope.display_name = '';
+	 	 $scope.email = '';
+		 $scope.password = '';
+		 $scope.display_name = '';
+		 
+		 $location.url('/');
    };
 }]);
 
